@@ -6,7 +6,7 @@ const ManyCircles = dynamic(() => import("@/components/ManyCircles"), {
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col">
       <div className="flex flex-col gap-4 md:flex-row md:gap-8">
         <p className="max-w-lg">
           I’m a frontend developer based currently in Tokyo, Japan. Creating
@@ -35,7 +35,7 @@ export default function Home() {
           </li>
         </ul>
       </div>
-      <ManyCircles className="pointer-events-none fixed left-0 bottom-0 -translate-y-1/2 scale-150 sm:scale-100 sm:translate-y-0 sm:top-auto sm:relative" />
+      <ManyCircles className="pointer-events-none fixed left-0 bottom-0 -translate-y-1/2 scale-150 sm:scale-100 sm:translate-y-0 sm:top-auto sm:relative md:h-[40rem] 3xl:fixed 3xl:p-4" />
     </div>
   );
 }

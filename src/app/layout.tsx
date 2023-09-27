@@ -36,7 +36,7 @@ export default function RootLayout({
             </Link>
           </nav>
         </header>
-        <main className="h-full font-light text-sm p-4 pt-14">{children}</main>
+        <main className="font-light text-sm p-4 pt-14">{children}</main>
       </body>
     </html>
   );
