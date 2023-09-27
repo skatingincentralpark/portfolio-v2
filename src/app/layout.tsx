@@ -20,9 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} min-h-screen`}>
-        <header className="flex gap-4 font-light text-sm p-4 fixed top-0 left-0 z-20 bg-white w-full items-center">
+        <header className="flex gap-4 font-light text-sm p-4 fixed top-0 left-0 z-20 bg-white w-full items-center overflow-scroll">
           <Link href="/" className={`font-bold `}>
-            Charlie Zhao
+            Charlie <span className="hidden xs:inline">Zhao</span>
           </Link>
           <nav className="flex gap-4">
             <Link className={`${activeClass}`} href="/portfolio">

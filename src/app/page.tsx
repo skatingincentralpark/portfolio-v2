@@ -25,6 +25,16 @@ export default function Home() {
           </li>
           <li>
             <a
+              href="https://github.com/skatingincentralpark/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700"
+            >
+              Github
+            </a>
+          </li>
+          <li>
+            <a
               href="https://www.linkedin.com/in/charleszhao1645/"
               target="_blank"
               rel="noopener noreferrer"
