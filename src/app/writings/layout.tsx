@@ -1,4 +1,4 @@
-import AnimeJs2 from "@/components/Animejs2";
+import AnimeJs2 from "@/components/AnimeJs2";
 import { getAllPosts } from "@/lib/blog-utils";
 import Link from "next/link";
 import React from "react";
