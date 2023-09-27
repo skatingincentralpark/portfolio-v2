@@ -18,8 +18,8 @@ export default function RootLayout({
   const activeClass = "hover:bg-violet-200 active:bg-violet-400 rounded px-1";
 
   return (
-    <html className="h-full" lang="en">
-      <body className={`${inter.className} h-full`}>
+    <html lang="en">
+      <body className={`${inter.className} min-h-screen`}>
         <header className="flex gap-4 font-light text-sm p-4 fixed top-0 left-0 z-20 bg-white w-full items-center">
           <Link href="/" className={`font-bold `}>
             Charlie Zhao
@@ -28,7 +28,6 @@ export default function RootLayout({
             <Link className={`${activeClass}`} href="/portfolio">
               Portfolio
             </Link>
-            <div>CV</div>
             <Link className={`${activeClass}`} href="/writings">
               Writings
             </Link>

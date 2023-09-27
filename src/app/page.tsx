@@ -9,15 +9,30 @@ export default function Home() {
     <div className="flex flex-col h-full">
       <div className="flex flex-col gap-4 md:flex-row md:gap-8">
         <p className="max-w-lg">
-          I’m a software engineer based in Sydney, Australia. Creating solutions
-          with web-based services. Currently focused on building accessible,
-          performant UI and exploring scalable architecture.
+          I’m a frontend developer based currently in Tokyo, Japan. Creating
+          solutions with web-based services. Currently focused on building
+          robust, accessible UI with a strong emphasis on performance
+          optimisation.
         </p>
         <ul>
-          <li>charles.zhao5461@gmail.com</li>
-          <li>CV</li>
-          <li>LinkedIn</li>
-          <li>read.cv</li>
+          <li>
+            <a
+              href="mailto: charles.zhao5461@gmail.com"
+              className="text-orange-400"
+            >
+              charles.zhao5461@gmail.com
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/charleszhao1645/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-700"
+            >
+              LinkedIn
+            </a>
+          </li>
         </ul>
       </div>
       <ManyCircles className="pointer-events-none fixed left-0 bottom-0 -translate-y-1/2 scale-150 sm:scale-100 sm:translate-y-0 sm:top-auto sm:relative" />
