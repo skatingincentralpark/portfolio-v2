@@ -1,6 +1,8 @@
-import Image from "next/image";
-import charlieBrown from "../../public/charlie.png";
-import billEvans from "../../public/bill.png";
+import dynamic from "next/dynamic";
+
+const ManyCircles = dynamic(() => import("@/components/ManyCircles"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -18,12 +20,7 @@ export default function Home() {
           <li>read.cv</li>
         </ul>
       </div>
-      <Image
-        className="w-72 mt-auto"
-        src={billEvans}
-        alt="bill evans"
-        quality={100}
-      />
+      <ManyCircles className="pointer-events-none fixed left-0 bottom-0 -translate-y-1/2 scale-150 sm:scale-100 sm:translate-y-0 sm:top-auto sm:relative" />
     </div>
   );
 }

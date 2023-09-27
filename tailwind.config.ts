@@ -67,10 +67,20 @@ module.exports = {
         },
         rerender: {
           "0%": {
-            ["border-color"]: "pink",
+            ["border-color"]: "magenta",
           },
           "40%": {
-            ["border-color"]: "pink",
+            ["border-color"]: "magenta",
+          },
+        },
+        highlight: {
+          "0%": {
+            background: "lightgray",
+            color: "white",
+          },
+          "40%": {
+            background: "lightgray",
+            color: "white",
           },
         },
       },
@@ -80,7 +90,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
   future: {
     hoverOnlyWhenSupported: true,
   },

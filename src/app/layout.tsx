@@ -32,6 +32,9 @@ export default function RootLayout({
             <Link className={`${activeClass}`} href="/writings">
               Writings
             </Link>
+            <Link className={`${activeClass}`} href="/cool-interiors">
+              Interiors
+            </Link>
           </nav>
         </header>
         <main className="h-full font-light text-sm p-4 pt-14">{children}</main>
