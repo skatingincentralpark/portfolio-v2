@@ -1,3 +1,5 @@
+import { Link } from "lucide-react";
+
 export default function Portfolio() {
   const activeClass = "hover:bg-violet-200 active:bg-violet-400 rounded";
 
@@ -17,12 +19,34 @@ export default function Portfolio() {
           >
             <div className="flex gap-2">
               <h2 className={`font-bold ${activeClass}`}>
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <a
+                  className="flex gap-1"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {project.title}
+                  <Link className="h-3 w-3" />
                 </a>
               </h2>
               <p className="text-sm text-gray-500">{project.category}</p>
             </div>
+
+            <p className="text-sm">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex gap-1 ${project.github && activeClass} ${
+                  !project.github && "cursor-not-allowed"
+                } w-fit`}
+                aria-disabled={!project.github}
+              >
+                {project.github ? "😸" : "😿"} Github{" "}
+                <Link className="h-3 w-3" />
+              </a>
+            </p>
+
             <p className="text-sm">✏️ {project.description}</p>
             <div className="flex flex-row my-2 flex-wrap gap-2">
               💿
@@ -60,6 +84,7 @@ const projects: {
   image: string;
   url: string;
   year: number;
+  github?: string;
   disabled?: boolean;
   disclaimer?: {
     description: string;
@@ -70,17 +95,18 @@ const projects: {
     title: "MachenV2",
     category: "Notes App",
     description:
-      "Accessible daily note-taking web app using lexical as the editor.",
+      "Accessible daily note-taking web app using lexical as the editor. date-fns to handle most date functionality.",
     technologies: ["lexical", "emotion", "date-fns", "radix-ui"],
     image: "",
     url: "https://machen-v2.vercel.app/",
     year: 2023,
+    github: "https://github.com/skatingincentralpark/machen-v2",
   },
   {
     title: "SadFrogsStudying",
     category: "Locations Index",
     description:
-      "An index of beautiful places to study around the world.  User-submitted.",
+      "An index of beautiful places to study around the world.  User-submitted.  Big form and client/server validation with zod.  Implements Google Maps API, statically generates map pages, and uses NextJS's ISR to revalidate pages when new locations are added, to save API costs.  Implements pending edits where an admin has to confirm any edits.",
     technologies: [
       "NextJS",
       "Prisma",
@@ -93,6 +119,7 @@ const projects: {
     image: "",
     url: "https://sadfrogs-nextjs.vercel.app/",
     year: 2023,
+    github: "https://github.com/sadfrogstudying/sadfrogs-nextjs",
   },
   {
     title: "Superhighway",
@@ -105,9 +132,10 @@ const projects: {
     year: 2022,
     disclaimer: {
       description:
-        "Shopify plan has expired, site also in the process of a major refactor.",
+        "Code isn't pleasant and packages are out of date.  Due to be rebuilt.",
       status: "bad",
     },
+    github: "https://github.com/skatingincentralpark/combat-site",
   },
   {
     title: "Machen",
@@ -118,6 +146,7 @@ const projects: {
     image: "",
     url: "https://machen.vercel.app/",
     year: 2021,
+    github: "https://github.com/skatingincentralpark/machen",
   },
   {
     title: "Videohead",
@@ -142,6 +171,7 @@ const projects: {
       description: "Shopify plan has expired.",
       status: "neutral",
     },
+    github: "https://github.com/skatingincentralpark/goriot-website",
   },
   {
     title: "Homeland",
