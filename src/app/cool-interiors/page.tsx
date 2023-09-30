@@ -1,37 +1,23 @@
 import Image from "next/image";
 
-interface ArenaBlock {
-  src: string;
+export interface ArenaBlock {
   description: string;
-  source: Source | null;
   createdAt: Date;
   title: string;
   srcLarge: string;
 }
 
 const CoolInteriorsPage = async () => {
-  const res = await fetch(
-    `https://api.are.na/v2/search/channels/anything-that-looks-cool?subject=blocks`
-  );
-
-  const data: ArenaChannel = await res.json();
-
-  const arenaBlocks: ArenaBlock[] = data.blocks.map((block) => ({
-    src: block.image.original.url,
-    description: block.description,
-    source: block.source,
-    createdAt: block.created_at,
-    title: block.title,
-    srcLarge: block.image.large.url,
-  }));
+  const res = await fetch("http://localhost:3000/api/arena");
+  const arenaBlocks: ArenaBlock[] = await res.json();
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3">
-      {arenaBlocks.map((block) => (
-        <div key={block.src} className="relative aspect-square">
+      {arenaBlocks.map((block, i) => (
+        <div key={block.srcLarge} className="relative aspect-square">
           <Image
-            objectFit="contain"
-            className="w-full h-full"
+            priority={i < 6}
+            className="w-full h-full object-contain"
             src={block.srcLarge}
             alt=""
             fill
@@ -44,7 +30,7 @@ const CoolInteriorsPage = async () => {
 };
 export default CoolInteriorsPage;
 
-interface ArenaChannel {
+export interface ArenaChannel {
   blocks: Block[];
 }
 
