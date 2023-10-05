@@ -8,7 +8,11 @@ export interface ArenaBlock {
 }
 
 const CoolInteriorsPage = async () => {
-  const res = await fetch("http://localhost:3000/api/arena");
+  const domain =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://www.charliezhao.com";
+  const res = await fetch(`${domain}/api/arena`);
   const arenaBlocks: ArenaBlock[] = await res.json();
 
   return (
