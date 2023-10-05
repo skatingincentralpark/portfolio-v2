@@ -131,9 +131,8 @@ const projects: {
     url: "https://www.feverdream.faith/",
     year: 2022,
     disclaimer: {
-      description:
-        "Code isn't pleasant and packages are out of date.  Due to be rebuilt.",
-      status: "bad",
+      description: "Pending to be rebuilt.",
+      status: "neutral",
     },
     github: "https://github.com/skatingincentralpark/combat-site",
   },
