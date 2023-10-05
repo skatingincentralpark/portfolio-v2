@@ -1,10 +1,23 @@
-import { assertDirectories, getPostBySlug } from "@/lib/blog-utils";
+import {
+  assertDirectories,
+  getAllPosts,
+  getPostBySlug,
+} from "@/lib/blog-utils";
 import markdownToHtml from "@/lib/markdown-to-html";
 import { type Post } from "@/types/blog";
 
 interface Params {
   category: string;
   slug: string;
+}
+
+export async function generateStaticParams() {
+  const allPostCategories = getAllPosts(["title", "slug"]);
+  const params = allPostCategories.flatMap((category) =>
+    category.posts.map((post) => post.slug)
+  );
+
+  return params;
 }
 
 export default async function WritingsIndividual({
