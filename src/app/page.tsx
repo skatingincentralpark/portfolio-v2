@@ -9,9 +9,10 @@ export default function Home() {
     <div className="flex flex-col">
       <div className="flex flex-col gap-4 md:flex-row md:gap-8">
         <p className="max-w-lg">
-          I’m a frontend developer based in Tokyo, Japan - creating solutions
-          with web-based services. Currently focused on building robust,
-          accessible UI with a strong emphasis on performance optimisation.
+          I’m a frontend developer, specialising in the Javascript ecosystem and
+          modern technologies such as React. I pride myself in writing scalable
+          and elegant code, with attention to performance and scalability.
+          Seeking the simplest solutions to complex problems.
         </p>
         <ul>
           <li>
