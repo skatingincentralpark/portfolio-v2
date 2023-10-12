@@ -95,8 +95,15 @@ const projects: {
     title: "MachenV2",
     category: "Notes App",
     description:
-      "Accessible daily note-taking web app using lexical as the editor. date-fns to handle most date functionality.",
-    technologies: ["lexical", "emotion", "date-fns", "radix-ui"],
+      "Accessible daily note-taking web app using lexical as the editor. date-fns to handle most date functionality.  Tested with react-testing-library.",
+    technologies: [
+      "lexical",
+      "emotion",
+      "date-fns",
+      "radix-ui",
+      "react-testing-library",
+      "jest",
+    ],
     image: "",
     url: "https://machen-v2.vercel.app/",
     year: 2023,
