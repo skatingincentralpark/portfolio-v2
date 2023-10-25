@@ -21,11 +21,13 @@ export default function Portfolio() {
             <div className="border border-gray-300 rounded overflow-hidden flex-shrink-0 sm:w-1/3 aspect-[1900/1090]">
               {project.videoPath ? (
                 <Video
+                  playsInline
                   autoPlay
                   muted
                   loop
-                  className="object-cover h-full w-full"
+                  className="object-cover h-full w-full bg-gray-100"
                   path={project.videoPath}
+                  description={`Preview video for ${project.title}`}
                 />
               ) : (
                 <div className="bg-gray-200 h-full w-full object-cover flex justify-center items-center text-gray-400">

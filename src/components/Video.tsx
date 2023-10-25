@@ -1,31 +1,25 @@
 "use client";
-import { VideoHTMLAttributes, forwardRef, useState } from "react";
+import { type VideoHTMLAttributes, useRef } from "react";
 
 interface VideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
   path: string;
+  description: string;
 }
 
-const Video = forwardRef<HTMLVideoElement, VideoProps>(
-  ({ path, ...props }, ref) => {
-    const [canPlay, setCanPlay] = useState(false);
+export default function Video({ path, description, ...props }: VideoProps) {
+  const ref = useRef<HTMLVideoElement>(null);
 
-    const className = `${props.className} ${
-      canPlay ? "" : "bg-lime-200 animate-pulse"
-    }`;
-
-    return (
-      <video
-        ref={ref}
-        {...props}
-        onCanPlay={() => setCanPlay(true)}
-        className={className}
-      >
-        <source src={path} type="video/mp4" />
-      </video>
-    );
-  }
-);
-
-Video.displayName = "Video";
-
-export default Video;
+  return (
+    <video
+      ref={ref}
+      {...props}
+      onClick={() => {
+        if (ref.current?.paused) ref.current?.play();
+        else ref.current?.pause();
+      }}
+    >
+      <source src={path} type="video/mp4" />
+      <meta itemProp="description" content={description} />
+    </video>
+  );
+}
