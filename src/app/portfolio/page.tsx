@@ -1,3 +1,4 @@
+import Video from "@/components/Video";
 import { Link } from "lucide-react";
 
 export default function Portfolio() {
@@ -15,60 +16,77 @@ export default function Portfolio() {
         {projects.map((project) => (
           <div
             key={project.title}
-            className="flex flex-col border border-gray-300 p-2 rounded"
+            className="flex flex-col border items-stretch border-gray-300 p-2 rounded gap-6 sm:flex-row sm:items-center shadow-lg"
           >
-            <div className="flex gap-2">
-              <h2 className={`font-bold ${activeClass}`}>
+            <div className="border border-gray-300 rounded overflow-hidden flex-shrink-0 sm:w-1/3 aspect-[1900/1090]">
+              {project.videoPath ? (
+                <Video
+                  autoPlay
+                  muted
+                  loop
+                  className="object-cover h-full w-full"
+                  path={project.videoPath}
+                />
+              ) : (
+                <div className="bg-gray-200 h-full w-full object-cover flex justify-center items-center text-gray-400">
+                  No preview
+                </div>
+              )}
+            </div>
+            <div className="flex flex-col max-w-2xl p-2 pt-0 sm:p-0">
+              <div className="flex gap-x-2 flex-wrap">
+                <h2 className={`font-bold ${activeClass}`}>
+                  <a
+                    className="flex gap-1"
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {project.title}
+                    <Link className="h-3 w-3" />
+                  </a>
+                </h2>
+                <p className="text-sm text-gray-500">{project.category}</p>
+              </div>
+
+              <p className="text-sm">
                 <a
-                  className="flex gap-1"
-                  href={project.url}
+                  href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={`flex gap-1 ${project.github && activeClass} ${
+                    !project.github && "cursor-not-allowed"
+                  } w-fit`}
+                  aria-disabled={!project.github}
                 >
-                  {project.title}
+                  {project.github ? "😸" : "😿"} Github{" "}
                   <Link className="h-3 w-3" />
                 </a>
-              </h2>
-              <p className="text-sm text-gray-500">{project.category}</p>
-            </div>
-
-            <p className="text-sm">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`flex gap-1 ${project.github && activeClass} ${
-                  !project.github && "cursor-not-allowed"
-                } w-fit`}
-                aria-disabled={!project.github}
-              >
-                {project.github ? "😸" : "😿"} Github{" "}
-                <Link className="h-3 w-3" />
-              </a>
-            </p>
-
-            <p className="text-sm">✏️ {project.description}</p>
-            <div className="flex flex-row my-2 flex-wrap gap-2">
-              💿
-              {project.technologies.map((tech) => (
-                <p
-                  key={tech}
-                  className="text-xs font-mono bg-gray-200 px-2 py-0.5 rounded-sm"
-                >
-                  {tech}
-                </p>
-              ))}
-            </div>
-            <p className="text-sm">⏰ {project.year}</p>
-            {project.disclaimer && (
-              <p
-                className={`text-xs mt-2 py-1 px-2 rounded border-t ${
-                  disclaimerBg[project.disclaimer.status]
-                }`}
-              >
-                {project.disclaimer.description}
               </p>
-            )}
+
+              <p className="text-sm">✏️ {project.description}</p>
+              <div className="flex flex-row my-2 flex-wrap gap-2">
+                💿
+                {project.technologies.map((tech) => (
+                  <p
+                    key={tech}
+                    className="text-xs font-mono bg-gray-200 px-2 py-0.5 rounded-sm"
+                  >
+                    {tech}
+                  </p>
+                ))}
+              </div>
+              <p className="text-sm">⏰ {project.year}</p>
+              {project.disclaimer && (
+                <p
+                  className={`text-xs mt-2 py-1 px-2 rounded border-t ${
+                    disclaimerBg[project.disclaimer.status]
+                  }`}
+                >
+                  {project.disclaimer.description}
+                </p>
+              )}
+            </div>
           </div>
         ))}
       </div>
@@ -81,7 +99,7 @@ const projects: {
   category: string;
   description: string;
   technologies: string[];
-  image: string;
+  videoPath: string;
   url: string;
   year: number;
   github?: string;
@@ -104,7 +122,7 @@ const projects: {
       "react-testing-library",
       "jest",
     ],
-    image: "",
+    videoPath: "/videos/machenv2.mp4",
     url: "https://machen-v2.vercel.app/",
     year: 2023,
     github: "https://github.com/skatingincentralpark/machen-v2",
@@ -123,7 +141,7 @@ const projects: {
       "Google Maps",
       "tailwind",
     ],
-    image: "",
+    videoPath: "/videos/sadfrogs.mp4",
     url: "https://sadfrogs-nextjs.vercel.app/",
     year: 2023,
     github: "https://github.com/sadfrogstudying/sadfrogs-nextjs",
@@ -134,7 +152,7 @@ const projects: {
     description:
       "Pages revalidate when CMS content changes.  Be sure to check out the News and Lookbook pages.  All content is configurable via the CMS (Sanity).",
     technologies: ["NextJS", "Sanity", "SWR", "Framer Motion", "Shopify"],
-    image: "/videos/portfolio/superhighway.mp4",
+    videoPath: "/videos/superhighway.mp4",
     url: "https://www.feverdream.faith/",
     year: 2022,
     disclaimer: {
@@ -149,7 +167,7 @@ const projects: {
     description:
       "Allows you to create daily notes using DraftJS and save them to Firebase.",
     technologies: ["NextJS", "Firebase", "styled-components"],
-    image: "",
+    videoPath: "",
     url: "https://machen.vercel.app/",
     year: 2021,
     github: "https://github.com/skatingincentralpark/machen",
@@ -160,7 +178,7 @@ const projects: {
     description:
       "Sanity CMS to manage video projects for a client and NextJS on the frontend.",
     technologies: ["NextJS", "Sanity CMS"],
-    image: "",
+    videoPath: "",
     url: "https://www.videohead.com.au/work",
     year: 2022,
   },
@@ -170,7 +188,7 @@ const projects: {
     category: "E-Commerce",
     description: "First Jamstack site.",
     technologies: ["Gatsby (React)", "Graphql", "Shopify"],
-    image: "",
+    videoPath: "",
     url: "https://www.goriot.co/",
     year: 2021,
     disclaimer: {
@@ -185,7 +203,7 @@ const projects: {
     description:
       "First MERN project - uses socket.io for real-time chat and notifications and Redux for global state.",
     technologies: ["MongoDB", "Express", "React", "Node"],
-    image: "",
+    videoPath: "",
     url: "https://homeland-v1.herokuapp.com/",
     year: 2021,
     disabled: true,
@@ -201,7 +219,7 @@ const projects: {
     description:
       "A portfolio site I designed and developed for Sydney-based artist, Nuan Ho.",
     technologies: ["Gatsby (React)", "Graphql", "NetlifyCMS"],
-    image: "",
+    videoPath: "",
     url: "https://www.nuanhoart.com/",
     year: 2021,
   },
