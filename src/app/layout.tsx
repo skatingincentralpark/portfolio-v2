@@ -16,6 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const activeClass = "hover:bg-violet-200 active:bg-violet-400 rounded px-1";
+  const links = [
+    { href: "/portfolio", label: "Portfolio" },
+    { href: "/photography", label: "Photography" },
+    { href: "/writings", label: "Writings" },
+    { href: "/cool-interiors", label: "Interiors" },
+  ];
 
   return (
     <html lang="en">
@@ -25,15 +31,11 @@ export default function RootLayout({
             Charlie <span className="hidden xs:inline">Zhao</span>
           </Link>
           <nav className="flex gap-4">
-            <Link className={`${activeClass}`} href="/portfolio">
-              Portfolio
-            </Link>
-            <Link className={`${activeClass}`} href="/writings">
-              Writings
-            </Link>
-            <Link className={`${activeClass}`} href="/cool-interiors">
-              Interiors
-            </Link>
+            {links.map(({ href, label }) => (
+              <Link key={href} href={href} className={`${activeClass}`}>
+                {label}
+              </Link>
+            ))}
           </nav>
         </header>
         <main className="font-light text-sm p-4 pt-14">{children}</main>
