@@ -57,8 +57,9 @@ export default function Portfolio() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`flex gap-1 ${project.github && activeClass} ${
-                    !project.github && "cursor-not-allowed"
-                  } w-fit`}
+                    !project.github &&
+                    "cursor-not-allowed line-through text-red-500"
+                  } w-fit text-green-500`}
                   aria-disabled={!project.github}
                 >
                   {project.github ? "😸" : "😿"} Github{" "}
