@@ -1,11 +1,10 @@
 ---
 title: "The Essence of Success"
 slug: "the-essence-of-success"
+author: "Earl Nightingale"
 ---
 
-# The Essence of Success
-
-_Audiobook By Earl Nightingale_
+# The Essence of Success (Audiobook)
 
 ## Rules for a healthy self image
 
@@ -13,12 +12,9 @@ _Audiobook By Earl Nightingale_
 2. Forgive yourself
 3. Make conscious choice to face eah day with confidence
 4. Keep up with yourself, march to your own drum and don’t worry about what others are doing
+5. Begin appreciating other people more, focus on things you like about other people rather than dislike
 
-Extra:
-
-1. Begin appreciating other people more, focus on things you like about other people rather than dislike
-
-## Act don’t react
+## Quotes: Act don’t react
 
 > A friend bought a paper and thanked vendor. Vendor didn’t so much as acknowledge the friend.
 > Why do you continue being so polite to the vendor?
@@ -50,6 +46,6 @@ Extra:
 
 > The tolerant person asks what the reason is that someone is like that
 
-## Creativity
+## Quotes: Creativity
 
 > To cease to live creatively is but little different from ceasing to live - Ben Franklin

@@ -1,6 +1,7 @@
 ---
 title: "Leadership Strategy and Tactics"
 slug: "leadership-strategy-and-tactics"
+author: "Jocko Willink"
 ---
 
 # Leadership Strategy and Tactics

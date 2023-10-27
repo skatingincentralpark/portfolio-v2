@@ -1,9 +1,12 @@
 ---
 title: "Meditations"
 slug: "meditations"
+author: "Marcus Aurelius"
 ---
 
 # Meditations
+
+## Quotes
 
 > Tolerate pain and feel few needs; work with my own hands and mind my own business; to be deaf to malicious gossip
 
