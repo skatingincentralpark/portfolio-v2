@@ -1,6 +1,7 @@
 export type Post = {
   slug?: string;
   title?: string;
+  author?: string;
   content?: string;
 };
 

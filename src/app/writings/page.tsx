@@ -1,7 +1,8 @@
 export default function Writings() {
   return (
     <div className="max-w-md">
-      Welcome to my writings, click on any of the links above to view
+      Currently just notes and quotes from books I&apos;ve read. Click on any of
+      the links above to view
     </div>
   );
 }

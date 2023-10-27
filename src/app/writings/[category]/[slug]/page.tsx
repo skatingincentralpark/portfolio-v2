@@ -53,9 +53,9 @@ export default async function WritingsIndividual({
             prose prose-slate
             prose-sm
 
-            prose-h1:text-sm
+            prose-h1:text-lg
             
-            prose-h2:text-sm
+            prose-h2:text-base
 
             prose-p:text-sm
 

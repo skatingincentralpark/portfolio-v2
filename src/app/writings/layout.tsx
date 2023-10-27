@@ -8,7 +8,7 @@ export default async function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  const allPostCategories = getAllPosts(["title", "slug"]);
+  const allPostCategories = getAllPosts(["title", "slug", "author"]);
   const activeClass = "hover:bg-lime-200 active:bg-lime-400 rounded px-1";
 
   return (
@@ -28,7 +28,8 @@ export default async function Layout({
                   href={`/writings/${category.path}/${post.slug}`}
                   className={activeClass}
                 >
-                  {post.title}
+                  <strong>{post.title}</strong> -{" "}
+                  <span className="text-orange-500">{post.author}</span>
                 </Link>
               ))}
             </div>
