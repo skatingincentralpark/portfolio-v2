@@ -11,8 +11,8 @@ export default function Home() {
         <p className="max-w-lg">
           I’m a frontend developer, specialising in the Javascript ecosystem and
           modern technologies such as React. I pride myself in writing scalable
-          and elegant code, with attention to performance and scalability.
-          Seeking the simplest solutions to complex problems.
+          and elegant code that performs. Seeking the simplest solutions to
+          complex problems.
         </p>
         <ul>
           <li>
