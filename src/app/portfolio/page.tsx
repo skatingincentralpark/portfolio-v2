@@ -18,7 +18,12 @@ export default function Portfolio() {
             key={project.title}
             className="flex flex-col border items-stretch border-gray-300 p-2 rounded gap-6 sm:flex-row sm:items-center shadow-lg"
           >
-            <div className="border border-gray-300 rounded overflow-hidden flex-shrink-0 sm:w-1/3 aspect-[1900/1090]">
+            <a
+              className="border border-gray-300 rounded overflow-hidden flex-shrink-0 sm:w-1/3 aspect-[1900/1090]"
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {project.videoPath ? (
                 <Video
                   playsInline
@@ -34,7 +39,7 @@ export default function Portfolio() {
                   No preview
                 </div>
               )}
-            </div>
+            </a>
             <div className="flex flex-col max-w-2xl p-2 pt-0 sm:p-0">
               <div className="flex gap-x-2 flex-wrap">
                 <h2 className={`font-bold ${activeClass}`}>
