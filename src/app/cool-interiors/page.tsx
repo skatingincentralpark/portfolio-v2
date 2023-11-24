@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const CoolInteriorsPage = async () => {
   const res = await fetch(
-    `https://api.are.na/v2/search/channels/anything-that-looks-cool?subject=blocks`
+    "https://api.are.na/v2/search/channels/anything-that-looks-cool?subject=blocks"
   );
 
   const data: ArenaChannel = await res.json();
