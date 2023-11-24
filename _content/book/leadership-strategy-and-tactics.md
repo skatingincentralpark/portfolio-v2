@@ -22,6 +22,10 @@ If you are getting overwhelmed, take a step back, breathe and check physiology.
 
 Willingness to do menial tasks once in a while builds relationships with people (give people favours, it’s not a waste of time to).
 
+## Subordinating your ego
+
+Great leaders understand the difference between arrogance and humility, what it means to be both a leader and follower, and that no task is beneath a leader.
+
 ## Empower people by going with their plans
 
 As a leader, your goal is to define the broad strategy and let other people devise the plans to achieve them. This gives people ownership and motivation to complete the tasks.

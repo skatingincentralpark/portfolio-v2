@@ -63,12 +63,13 @@ export default function Portfolio() {
                   rel="noopener noreferrer"
                   className={`flex gap-1 ${project.github && activeClass} ${
                     !project.github &&
-                    "cursor-not-allowed line-through text-red-500"
+                    "cursor-not-allowed line-through text-neutral-500"
                   } w-fit text-green-500`}
                   aria-disabled={!project.github}
                 >
-                  {project.github ? "😸" : "😿"} Github{" "}
-                  <Link className="h-3 w-3" />
+                  {project.github ? "😸 Github" : "😿 Github Private"}
+                  {project.github && <Link className="h-3 w-3" />}
+                  {/* {!project.github && <span>Private</span>} */}
                 </a>
               </p>
 
@@ -118,26 +119,47 @@ const projects: {
   };
 }[] = [
   {
-    title: "MachenV2",
-    category: "Notes App",
+    title: "InternationalStudySpots",
+    category: "Study Spot Sharing Site",
     description:
-      "Accessible daily note-taking web app using lexical as the editor. date-fns to handle most date functionality.  Tested with react-testing-library.",
+      "Rebuilding with new design, improved component / server architecture and integration / E2E testing.",
     technologies: [
-      "lexical",
-      "emotion",
-      "date-fns",
-      "radix-ui",
-      "react-testing-library",
-      "jest",
+      "NextJS",
+      "Prisma",
+      "Jest",
+      "TRPC",
+      "AWS S3",
+      "React Query",
+      "Google Maps",
+      "tailwind",
     ],
-    videoPath: "/videos/machenv2.mp4",
-    url: "https://machen-v2.vercel.app/",
+    videoPath: "/videos/internationalstudyspots.mp4",
+    url: "https://internationalstudyspots.vercel.app/",
     year: 2023,
-    github: "https://github.com/skatingincentralpark/machen-v2",
+    disclaimer: {
+      status: "good",
+      description:
+        "WIP V2 of SadFrogsStudying, you can find that project below.",
+    },
+  },
+  {
+    title: "Superhighway",
+    category: "E-Commerce",
+    description:
+      "Pages revalidate when CMS content changes.  Be sure to check out the News and Lookbook pages.  All content is configurable via the CMS (Sanity). Animations using Framer Motion.",
+    technologies: ["NextJS", "Sanity", "SWR", "Framer Motion", "Shopify"],
+    videoPath: "/videos/superhighway.mp4",
+    url: "https://www.feverdream.faith/",
+    year: 2022,
+    disclaimer: {
+      description: "Pending to be rebuilt.",
+      status: "neutral",
+    },
+    github: "https://github.com/skatingincentralpark/combat-site",
   },
   {
     title: "SadFrogsStudying",
-    category: "Locations Index",
+    category: "Study Spot Sharing Site",
     description:
       "An index of beautiful places to study around the world.  User-submitted.  Big form and client/server validation with zod.  Implements Google Maps API, statically generates map pages, and uses NextJS's ISR to revalidate pages when new locations are added, to save API costs.  Implements pending edits where an admin has to confirm any edits.",
     technologies: [
@@ -155,19 +177,22 @@ const projects: {
     github: "https://github.com/sadfrogstudying/sadfrogs-nextjs",
   },
   {
-    title: "Superhighway",
-    category: "E-Commerce",
+    title: "MachenV2",
+    category: "Notes App",
     description:
-      "Pages revalidate when CMS content changes.  Be sure to check out the News and Lookbook pages.  All content is configurable via the CMS (Sanity).",
-    technologies: ["NextJS", "Sanity", "SWR", "Framer Motion", "Shopify"],
-    videoPath: "/videos/superhighway.mp4",
-    url: "https://www.feverdream.faith/",
-    year: 2022,
-    disclaimer: {
-      description: "Pending to be rebuilt.",
-      status: "neutral",
-    },
-    github: "https://github.com/skatingincentralpark/combat-site",
+      "Accessible daily note-taking web app using lexical as the editor. date-fns to handle most date functionality.  Tested with react-testing-library.",
+    technologies: [
+      "lexical",
+      "emotion",
+      "date-fns",
+      "radix-ui",
+      "react-testing-library",
+      "jest",
+    ],
+    videoPath: "/videos/machenv2.mp4",
+    url: "https://machen-v2.vercel.app/",
+    year: 2023,
+    github: "https://github.com/skatingincentralpark/machen-v2",
   },
   {
     title: "Machen",
@@ -220,6 +245,7 @@ const projects: {
         "After Heroku's free tier expired, it's no longer active.  I may remake and redeploy it in the future.",
       status: "bad",
     },
+    github: "https://github.com/skatingincentralpark/Homeland",
   },
   {
     title: "Nuan Ho Art",
