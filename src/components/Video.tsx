@@ -28,7 +28,8 @@ export default function Video({ path, description, ...props }: VideoProps) {
         <video
           ref={vid}
           {...props}
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             if (vid.current?.paused) vid.current?.play();
             else vid.current?.pause();
           }}

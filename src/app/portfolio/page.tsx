@@ -43,7 +43,7 @@ export default function Portfolio() {
             </a>
             <div className="flex flex-col max-w-2xl p-2 pt-0 sm:p-0">
               <div className="flex gap-x-2 flex-wrap">
-                <h2 className={`font-bold ${activeClass}`}>
+                <h2 className={`font-bold underline ${activeClass}`}>
                   <a
                     className="flex gap-1"
                     href={project.url}
@@ -65,12 +65,11 @@ export default function Portfolio() {
                   className={`flex gap-1 ${project.github && activeClass} ${
                     !project.github &&
                     "cursor-not-allowed line-through text-neutral-500"
-                  } w-fit text-green-500`}
+                  } w-fit text-green-500 underline`}
                   aria-disabled={!project.github}
                 >
                   {project.github ? "😸 Github" : "😿 Github Private"}
                   {project.github && <Link className="h-3 w-3" />}
-                  {/* {!project.github && <span>Private</span>} */}
                 </a>
               </p>
 
