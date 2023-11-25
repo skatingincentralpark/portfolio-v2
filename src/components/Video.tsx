@@ -1,5 +1,7 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { type VideoHTMLAttributes, useRef } from "react";
+import { useInView } from "react-intersection-observer";
 
 interface VideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
   path: string;
@@ -7,19 +9,36 @@ interface VideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
 }
 
 export default function Video({ path, description, ...props }: VideoProps) {
-  const ref = useRef<HTMLVideoElement>(null);
+  const vid = useRef<HTMLVideoElement>(null);
+
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    rootMargin: "-100px",
+  });
 
   return (
-    <video
+    <div
       ref={ref}
-      {...props}
-      onClick={() => {
-        if (ref.current?.paused) ref.current?.play();
-        else ref.current?.pause();
-      }}
+      className={cn(
+        `relative h-full w-full rounded overflow-hidden border`,
+        !inView && `border-dashed border-red-500`
+      )}
     >
-      <source src={path} type="video/mp4" />
-      <meta itemProp="description" content={description} />
-    </video>
+      {inView ? (
+        <video
+          ref={vid}
+          {...props}
+          onClick={() => {
+            if (vid.current?.paused) vid.current?.play();
+            else vid.current?.pause();
+          }}
+        >
+          <source src={path} type="video/mp4" />
+          <meta itemProp="description" content={description} />
+        </video>
+      ) : (
+        <div className="bg-neutral-200 w-full h-full animate-pulse" />
+      )}
+    </div>
   );
 }
