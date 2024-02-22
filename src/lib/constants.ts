@@ -36,6 +36,7 @@ export const projects: {
       description:
         "WIP V2 of SadFrogsStudying, you can find that project below.",
     },
+    github: "https://github.com/sadfrogstudying/internationalstudyspots",
   },
   {
     title: "Superhighway",
@@ -51,6 +52,22 @@ export const projects: {
       status: "neutral",
     },
     github: "https://github.com/skatingincentralpark/combat-site",
+  },
+  {
+    title: "Learning Playground",
+    category: "Miscellaneous",
+    description: "Place to store JS exercises I do, along with learning notes.",
+    technologies: [
+      "Typescript",
+      "Vitest",
+      "React Testing Library",
+      "React",
+      "Vanilla CSS",
+    ],
+    videoPath: "",
+    url: "https://charlies-react-learning.vercel.app/exercises",
+    year: 2024,
+    github: "https://github.com/skatingincentralpark/react-playground",
   },
   {
     title: "SadFrogsStudying",
