@@ -38,7 +38,7 @@ export function getPostBySlug(
     });
 
     return items;
-  } catch (error) {
+  } catch {
     notFound();
   }
 }
@@ -58,7 +58,7 @@ export function getAllPosts(fields: (keyof Post)[] = []) {
 
   const directories = fs
     .readdirSync(fullDirectory)
-    .filter((item) => !/(^|\/)\.[^\/\.]/g.test(item)); // ignore hidden files
+    .filter((item) => !/(^|\/)\.[^/.]/g.test(item)); // ignore hidden files
 
   assertDirectories(directories);
 

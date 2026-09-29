@@ -10,7 +10,7 @@ const columns =
 
 // iPhone 17 Pro screen corners: 62pt on a 402x874pt display, as percentages
 // so the radius scales with the video.
-const IPHONE_FRAME = "rounded-[15.42%_/_7.09%] border-0";
+const IPHONE_FRAME = "rounded-[15.42%/7.09%] border-0";
 
 export default function ProjectsIndexExpanded() {
   return (
@@ -70,9 +70,9 @@ export default function ProjectsIndexExpanded() {
                 className={cn(
                   "col-start-2 xl:col-start-auto w-full max-w-md xl:max-w-none rounded",
                   !project.videoPath
-                    ? "block aspect-[1900/1090] bg-neutral-800"
+                    ? "block aspect-1900/1090 bg-neutral-800"
                     : portrait
-                      ? "flex justify-center aspect-[4/5] py-4 bg-neutral-800"
+                      ? "flex justify-center aspect-4/5 py-4 bg-neutral-800"
                       : "flex flex-col gap-3 p-3 bg-neutral-800"
                 )}
               >
@@ -81,8 +81,8 @@ export default function ProjectsIndexExpanded() {
                     <div
                       className={cn(
                         portrait
-                          ? "h-full aspect-[496/1080]"
-                          : "w-full aspect-[1900/1090]"
+                          ? "h-full aspect-496/1080"
+                          : "w-full aspect-1900/1090"
                       )}
                     >
                       <Video
@@ -104,7 +104,7 @@ export default function ProjectsIndexExpanded() {
                       // inside this flex column: 57.4% gives the same height
                       // as a standalone portrait preview (4/5 box, 496x1080).
                       <div className="mx-auto w-[57.4%]">
-                        <div className="aspect-[496/1080]">
+                        <div className="aspect-496/1080">
                           <Video
                             playsInline
                             autoPlay

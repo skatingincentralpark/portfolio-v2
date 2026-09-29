@@ -1,6 +1,6 @@
 "use client";
 
-import anime from "animejs";
+import { animate, svg } from "animejs";
 import { useEffect, useRef } from "react";
 
 const AnimeJs1 = () => {
@@ -8,18 +8,17 @@ const AnimeJs1 = () => {
   const pathRef = useRef<SVGPathElement | null>(null);
 
   useEffect(() => {
-    if (!pathRef) return;
-    var path = anime.path(pathRef.current);
+    if (!square.current || !pathRef.current) return;
 
-    anime({
-      targets: square.current,
-      translateX: path("x"),
-      translateY: path("y"),
-      rotate: path("angle"),
-      easing: "linear",
+    const animation = animate(square.current, {
+      ...svg.createMotionPath(pathRef.current),
+      ease: "linear",
       duration: 8000,
       loop: true,
     });
+    return () => {
+      animation.revert();
+    };
   }, []);
 
   return (

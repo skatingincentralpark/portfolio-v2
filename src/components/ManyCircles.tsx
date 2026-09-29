@@ -1,27 +1,31 @@
 "use client";
 
-import anime from "animejs";
+import { animate, stagger, svg } from "animejs";
 import { useEffect, useRef } from "react";
 
 const ManyCircles = ({ className }: { className?: string }) => {
   const ref = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
-    anime({
-      targets: ref.current?.querySelectorAll("circle, path"),
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: "easeInOutSine",
-      duration: 700,
-      delay: function (el, i) {
-        return i * 50;
-      },
-      direction: "alternate",
-      loop: true,
-      scale: [
-        { value: 0.9, easing: "easeOutSine", duration: 500 },
-        { value: 1, easing: "easeInOutQuad", duration: 1200 },
-      ],
-    });
+    if (!ref.current) return;
+    const animation = animate(
+      svg.createDrawable(ref.current.querySelectorAll("circle, path")),
+      {
+        draw: ["0 0", "0 1"],
+        ease: "inOutSine",
+        duration: 700,
+        delay: stagger(50),
+        alternate: true,
+        loop: true,
+        scale: [
+          { to: 0.9, ease: "outSine", duration: 500 },
+          { to: 1, ease: "inOutQuad", duration: 1200 },
+        ],
+      }
+    );
+    return () => {
+      animation.revert();
+    };
   }, []);
 
   const cls1 = "stroke-pink-500 fill-none";

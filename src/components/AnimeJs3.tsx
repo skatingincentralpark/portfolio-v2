@@ -1,30 +1,27 @@
 "use client";
 
-import anime from "animejs";
+import { animate, stagger, svg } from "animejs";
 import { useEffect, useRef } from "react";
 
 const AnimeJs3 = () => {
-  const line1 = useRef<SVGPathElement | null>(null);
-  const line2 = useRef<SVGPathElement | null>(null);
-  const line3 = useRef<SVGPathElement | null>(null);
-  const line4 = useRef<SVGPathElement | null>(null);
-  const line5 = useRef<SVGPathElement | null>(null);
-  const line6 = useRef<SVGPathElement | null>(null);
-  const line7 = useRef<SVGPathElement | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
-    anime({
-      targets: svgRef,
-      strokeDashoffset: [anime.setDashoffset, 0],
-      easing: "easeInOutSine",
-      duration: 1500,
-      delay: function (el, i) {
-        return i * 250;
-      },
-      direction: "alternate",
-      loop: true,
-    });
+    if (!svgRef.current) return;
+    const animation = animate(
+      svg.createDrawable(svgRef.current.querySelectorAll(".el")),
+      {
+        draw: ["0 0", "0 1"],
+        ease: "inOutSine",
+        duration: 1500,
+        delay: stagger(250),
+        alternate: true,
+        loop: true,
+      }
+    );
+    return () => {
+      animation.revert();
+    };
   }, []);
 
   return (

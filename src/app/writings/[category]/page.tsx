@@ -2,7 +2,9 @@ import { getAllPosts } from "@/lib/blog-utils";
 
 export async function generateStaticParams() {
   const allPostCategories = getAllPosts(["title", "slug"]);
-  const params = allPostCategories.map((category) => category.path);
+  const params = allPostCategories.map((category) => ({
+    category: category.path,
+  }));
 
   return params;
 }

@@ -14,7 +14,10 @@ interface Params {
 export async function generateStaticParams() {
   const allPostCategories = getAllPosts(["title", "slug"]);
   const params = allPostCategories.flatMap((category) =>
-    category.posts.map((post) => post.slug)
+    category.posts.map((post) => ({
+      category: category.path,
+      slug: post.slug!,
+    }))
   );
 
   return params;
@@ -23,7 +26,7 @@ export async function generateStaticParams() {
 export default async function WritingsIndividual({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }) {
   async function getPost(params: Params): Promise<Post | undefined> {
     assertDirectories(params.category);
@@ -39,11 +42,11 @@ export default async function WritingsIndividual({
     return { ...post, content: content };
   }
 
-  const post = await getPost(params);
+  const post = await getPost(await params);
 
   return (
     <div className="h-full">
-      {/* <div className="px-2 py-1 rounded flex gap-2 items-center bg-gradient-to-r from-lime-400 mb-2">
+      {/* <div className="px-2 py-1 rounded flex gap-2 items-center bg-linear-to-r from-lime-400 mb-2">
         {params.category} / {params.slug}
       </div> */}
       <>

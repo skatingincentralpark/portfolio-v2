@@ -57,6 +57,8 @@ export default function Video({
       )}
       {inView && (
         <>
+          {/* Silent project demos, so there's nothing to caption. */}
+          {/* oxlint-disable-next-line jsx-a11y/media-has-caption */}
           <video
             ref={vid}
             {...props}
@@ -93,7 +95,7 @@ export default function Video({
                 pops back in with the new icon. */}
             <span
               key={String(paused)}
-              className="rounded-full bg-white/90 p-3 shadow transition-transform duration-150 group-active/video:scale-90 animate-in zoom-in-90"
+              className="rounded-full bg-white/90 p-3 shadow-sm transition-transform duration-150 group-active/video:scale-90 animate-in zoom-in-90"
             >
               {paused ? (
                 <Play className="h-4 w-4" strokeWidth={1.5} />

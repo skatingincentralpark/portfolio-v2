@@ -15,7 +15,7 @@ const useDebounce = <T extends () => void>(
   callback: T,
   timeOut: number = 1000
 ): DebouncedFunc<() => void> => {
-  const ref = useRef<T>();
+  const ref = useRef<T | undefined>(undefined);
 
   useEffect(() => {
     ref.current = callback;
@@ -26,6 +26,8 @@ const useDebounce = <T extends () => void>(
       ref.current?.();
     };
 
+    // `func` only reads the ref when the debounced call fires, not during render.
+    // oxlint-disable-next-line react/refs
     return debounce(func, timeOut);
   }, [timeOut]);
 
