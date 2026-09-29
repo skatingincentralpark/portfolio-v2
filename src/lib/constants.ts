@@ -4,7 +4,9 @@ export const projects: {
   description: string;
   technologies: string[];
   videoPath: string;
-  url: string;
+  // Phone recordings are portrait; everything else is a 16:9 screen capture.
+  videoOrientation?: "portrait";
+  url?: string;
   year: number;
   github?: string;
   disabled?: boolean;
@@ -14,18 +16,58 @@ export const projects: {
   };
 }[] = [
   {
+    title: "Jimoto",
+    category: "Community Platform",
+    description:
+      "Community super-app for Japanese speakers in Australia: a visa-aware jobs board, share-houses, marketplace, business directory, events and a map.  Web and mobile apps share one Convex backend, with realtime in-app messaging and moderation tools to keep scams out.",
+    technologies: [
+      "Convex",
+      "TanStack Start",
+      "React 19",
+      "Better Auth",
+      "Cloudflare Workers",
+      "Expo",
+      "tailwind",
+      "MapLibre",
+      "Vitest",
+      "Playwright",
+    ],
+    videoPath: "/videos/jimoto.mp4",
+    url: "https://community-convex-web.charles-zhao5461.workers.dev/",
+    year: 2026,
+  },
+  {
+    title: "Simple Workout",
+    category: "iOS Fitness App",
+    description:
+      "Native iOS strength-training app, built interaction-first.  A custom slide-up sheet morphs from a floating card to fullscreen on one device-tuned spring, sets are logged on a custom keypad with haptics and RPE controls, and exercises are reordered or grouped into supersets by dragging.  Runs on mock data for now; persistence and history come next as it grows into a full app.",
+    technologies: [
+      "SwiftUI",
+      "UIKit",
+      "AVFoundation",
+      "MetalKit",
+      "XCTest",
+      "Maestro",
+    ],
+    videoPath: "/videos/simpleworkout.mp4",
+    videoOrientation: "portrait",
+    year: 2026,
+  },
+  {
     title: "InternationalStudySpots",
     category: "Study Spot Sharing Site",
     description:
-      "Rebuilding with new design, improved component / server architecture and integration / E2E testing.",
+      "An index of beautiful places to study around the world, rebuilt from SadFrogsStudying.  Images upload straight from the browser to S3 via presigned URLs, and pages are statically cached and only revalidated when a spot is created, edited or deleted.",
     technologies: [
       "NextJS",
-      "Prisma",
-      "Jest",
       "TRPC",
-      "AWS S3",
+      "Prisma",
       "React Query",
-      "Google Maps",
+      "NextAuth",
+      "AWS S3",
+      "Zod",
+      "Leaflet",
+      "Jest",
       "tailwind",
     ],
     videoPath: "/videos/internationalstudyspots.mp4",
@@ -52,22 +94,6 @@ export const projects: {
       status: "neutral",
     },
     github: "https://github.com/skatingincentralpark/combat-site",
-  },
-  {
-    title: "Learning Playground",
-    category: "Miscellaneous",
-    description: "Place to store JS exercises I do, along with learning notes.",
-    technologies: [
-      "Typescript",
-      "Vitest",
-      "React Testing Library",
-      "React",
-      "Vanilla CSS",
-    ],
-    videoPath: "",
-    url: "https://charlies-react-learning.vercel.app/exercises",
-    year: 2024,
-    github: "https://github.com/skatingincentralpark/react-playground",
   },
   {
     title: "SadFrogsStudying",
@@ -107,17 +133,6 @@ export const projects: {
     github: "https://github.com/skatingincentralpark/machen-v2",
   },
   {
-    title: "Machen",
-    category: "Productivity App",
-    description:
-      "Allows you to create daily notes using DraftJS and save them to Firebase.",
-    technologies: ["NextJS", "Firebase", "styled-components"],
-    videoPath: "",
-    url: "https://machen.vercel.app/",
-    year: 2021,
-    github: "https://github.com/skatingincentralpark/machen",
-  },
-  {
     title: "Videohead",
     category: "Video Portfolio",
     description:
@@ -141,23 +156,6 @@ export const projects: {
       status: "neutral",
     },
     github: "https://github.com/skatingincentralpark/goriot-website",
-  },
-  {
-    title: "Homeland",
-    category: "Social Media App",
-    description:
-      "First MERN project - uses socket.io for real-time chat and notifications and Redux for global state.",
-    technologies: ["MongoDB", "Express", "React", "Node"],
-    videoPath: "",
-    url: "https://homeland-v1.herokuapp.com/",
-    year: 2021,
-    disabled: true,
-    disclaimer: {
-      description:
-        "After Heroku's free tier expired, it's no longer active.  I may remake and redeploy it in the future.",
-      status: "bad",
-    },
-    github: "https://github.com/skatingincentralpark/Homeland",
   },
   {
     title: "Nuan Ho Art",
