@@ -1,18 +1,24 @@
 import Image from "next/image";
 
 const CoolInteriorsPage = async () => {
+  // The v2 search endpoint was shut down (410 Gone); channel contents still
+  // works. Degrade to an empty grid rather than failing the build if Are.na
+  // is unavailable.
   const res = await fetch(
-    "https://api.are.na/v2/search/channels/anything-that-looks-cool?subject=blocks"
+    "https://api.are.na/v2/channels/anything-that-looks-cool/contents?per=100"
   );
 
-  const data: ArenaChannel = await res.json();
+  const data: ArenaChannel = res.ok ? await res.json() : { contents: [] };
 
-  const arenaBlocks: ArenaBlock[] = data.blocks.map((block) => ({
-    description: block.description,
-    createdAt: block.created_at,
-    title: block.title,
-    srcLarge: block.image.large.url,
-  }));
+  // Channels can also hold links and nested channels, which have no image.
+  const arenaBlocks: ArenaBlock[] = data.contents
+    .filter((block) => block.image)
+    .map((block) => ({
+      description: block.description,
+      createdAt: block.created_at,
+      title: block.title,
+      srcLarge: block.image.large.url,
+    }));
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3">
@@ -41,7 +47,7 @@ interface ArenaBlock {
 }
 
 interface ArenaChannel {
-  blocks: Block[];
+  contents: Block[];
 }
 
 interface Block {
