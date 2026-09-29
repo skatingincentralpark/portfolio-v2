@@ -23,16 +23,6 @@ export default function ProjectsIndexExpanded() {
       <ul>
         {projects.map((project) => {
           const portrait = project.videoOrientation === "portrait";
-          // Projects without a public URL (e.g. unreleased apps) render the
-          // same markup without the link.
-          const MediaWrapper = project.url ? "a" : "div";
-          const linkProps = project.url
-            ? {
-                href: project.url,
-                target: "_blank",
-                rel: "noopener noreferrer",
-              }
-            : {};
 
           return (
             <li
@@ -43,7 +33,9 @@ export default function ProjectsIndexExpanded() {
               <div className="flex flex-col gap-1">
                 {project.url ? (
                   <a
-                    {...linkProps}
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-medium flex items-center gap-1 w-fit underline rounded px-1 -mx-1 hover:bg-violet-200 active:bg-violet-400"
                   >
                     {project.title}
@@ -70,8 +62,7 @@ export default function ProjectsIndexExpanded() {
               <span className="col-start-2 xl:col-start-auto text-xs text-gray-500">
                 {project.technologies.join(", ")}
               </span>
-              <MediaWrapper
-                {...linkProps}
+              <div
                 className={cn(
                   "col-start-2 xl:col-start-auto w-full max-w-md xl:max-w-none rounded",
                   !project.videoPath
@@ -111,7 +102,7 @@ export default function ProjectsIndexExpanded() {
                     No preview
                   </div>
                 )}
-              </MediaWrapper>
+              </div>
             </li>
           );
         })}

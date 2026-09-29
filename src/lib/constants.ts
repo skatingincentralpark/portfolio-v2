@@ -148,7 +148,7 @@ export const projects: {
     category: "E-Commerce",
     description: "First Jamstack site.",
     technologies: ["Gatsby (React)", "Graphql", "Shopify"],
-    videoPath: "",
+    videoPath: "/videos/goriot.mp4",
     url: "https://www.goriot.co/",
     year: 2021,
     disclaimer: {

@@ -46,6 +46,7 @@ export default function Video({
           <video
             ref={vid}
             {...props}
+            className={cn("cursor-pointer", props.className)}
             onPlay={() => setPaused(false)}
             onPause={() => setPaused(true)}
             onClick={(e) => {
