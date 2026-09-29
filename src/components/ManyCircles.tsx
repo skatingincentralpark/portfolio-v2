@@ -8,21 +8,18 @@ const ManyCircles = ({ className }: { className?: string }) => {
 
   useEffect(() => {
     if (!ref.current) return;
-    const animation = animate(
-      svg.createDrawable(ref.current.querySelectorAll("circle, path")),
-      {
-        draw: ["0 0", "0 1"],
-        ease: "inOutSine",
-        duration: 700,
-        delay: stagger(50),
-        alternate: true,
-        loop: true,
-        scale: [
-          { to: 0.9, ease: "outSine", duration: 500 },
-          { to: 1, ease: "inOutQuad", duration: 1200 },
-        ],
-      }
-    );
+    const animation = animate(svg.createDrawable(ref.current.querySelectorAll("circle, path")), {
+      draw: ["0 0", "0 1"],
+      ease: "inOutSine",
+      duration: 700,
+      delay: stagger(50),
+      alternate: true,
+      loop: true,
+      scale: [
+        { to: 0.9, ease: "outSine", duration: 500 },
+        { to: 1, ease: "inOutQuad", duration: 1200 },
+      ],
+    });
     return () => {
       animation.revert();
     };

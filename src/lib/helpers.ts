@@ -5,18 +5,10 @@ export const slugToText = (slug: string) => {
   return slug
     .split("-")
     .join(" ")
-    .replace(
-      /\w\S*/g,
-      (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-    );
+    .replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
 };
 
-export const clamp = (
-  minSize: number,
-  maxSize: number,
-  minWidth = 700,
-  maxWidth = 1400
-) => {
+export const clamp = (minSize: number, maxSize: number, minWidth = 700, maxWidth = 1400) => {
   // source: https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
   // convert to rem
   let minSizeNew = minSize / 12;

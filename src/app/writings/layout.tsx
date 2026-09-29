@@ -3,11 +3,7 @@ import { getAllPosts } from "@/lib/blog-utils";
 import Link from "next/link";
 import React from "react";
 
-export default async function Layout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function Layout({ children }: { children: React.ReactNode }) {
   const allPostCategories = getAllPosts(["title", "slug", "author"]);
   const activeClass = "hover:bg-lime-200 active:bg-lime-400 rounded px-1";
 

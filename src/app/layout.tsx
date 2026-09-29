@@ -10,11 +10,7 @@ export const metadata: Metadata = {
   description: "Portfolio of Charlie Zhao",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   const activeClass = "hover:bg-violet-200 active:bg-violet-400 rounded px-1";
   const links = [
     { href: "/portfolio", label: "Portfolio" },

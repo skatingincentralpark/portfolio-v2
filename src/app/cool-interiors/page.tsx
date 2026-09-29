@@ -5,7 +5,7 @@ const CoolInteriorsPage = async () => {
   // works. Degrade to an empty grid rather than failing the build if Are.na
   // is unavailable.
   const res = await fetch(
-    "https://api.are.na/v2/channels/anything-that-looks-cool/contents?per=100"
+    "https://api.are.na/v2/channels/anything-that-looks-cool/contents?per=100",
   );
 
   const data: ArenaChannel = res.ok ? await res.json() : { contents: [] };

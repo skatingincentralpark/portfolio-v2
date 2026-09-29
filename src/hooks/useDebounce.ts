@@ -13,7 +13,7 @@ import { useEffect, useMemo, useRef } from "react";
  */
 const useDebounce = <T extends () => void>(
   callback: T,
-  timeOut: number = 1000
+  timeOut: number = 1000,
 ): DebouncedFunc<() => void> => {
   const ref = useRef<T | undefined>(undefined);
 

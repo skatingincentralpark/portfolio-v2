@@ -8,17 +8,14 @@ const AnimeJs3 = () => {
 
   useEffect(() => {
     if (!svgRef.current) return;
-    const animation = animate(
-      svg.createDrawable(svgRef.current.querySelectorAll(".el")),
-      {
-        draw: ["0 0", "0 1"],
-        ease: "inOutSine",
-        duration: 1500,
-        delay: stagger(250),
-        alternate: true,
-        loop: true,
-      }
-    );
+    const animation = animate(svg.createDrawable(svgRef.current.querySelectorAll(".el")), {
+      draw: ["0 0", "0 1"],
+      ease: "inOutSine",
+      duration: 1500,
+      delay: stagger(250),
+      alternate: true,
+      loop: true,
+    });
     return () => {
       animation.revert();
     };
@@ -26,13 +23,7 @@ const AnimeJs3 = () => {
 
   return (
     <svg viewBox="0 0 280 100" ref={svgRef}>
-      <g
-        fill="none"
-        fillRule="evenodd"
-        stroke="currentColor"
-        strokeWidth="1"
-        className="lines"
-      >
+      <g fill="none" fillRule="evenodd" stroke="currentColor" strokeWidth="1" className="lines">
         <path
           className="el"
           d="M58 80V50.12C57.7 41.6 51.14 35 43 35a15 15 0 0 0 0 30h7.5v15H43a30 30 0 1 1 0-60c16.42 0 29.5 13.23 30 29.89V80H58z"
@@ -54,10 +45,7 @@ const AnimeJs3 = () => {
           className="el"
           d="M238 65a15 15 0 0 1 0-30c8.1 0 14.63 6.53 15 15h-15v15h30V49.89C267.5 33.23 254.42 20 238 20a30 30 0 0 0 0 60V65z"
         ></path>
-        <path
-          className="el"
-          d="M260.48 65a7.5 7.5 0 1 1-7.48 8v-1c.26-3.9 3.5-7 7.48-7z"
-        ></path>
+        <path className="el" d="M260.48 65a7.5 7.5 0 1 1-7.48 8v-1c.26-3.9 3.5-7 7.48-7z"></path>
       </g>
     </svg>
   );

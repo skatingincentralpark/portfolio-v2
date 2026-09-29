@@ -9,8 +9,7 @@ import { useInView } from "react-intersection-observer";
 const RENDER_AMOUNT = 16;
 
 export default function Photos({ photos }: { photos: SanityImage[] }) {
-  const [amountOfPhotosToRender, setAmountOfPhotosToRender] =
-    useState(RENDER_AMOUNT);
+  const [amountOfPhotosToRender, setAmountOfPhotosToRender] = useState(RENDER_AMOUNT);
   const { ref } = useInView({
     rootMargin: "100px",
     onChange: (inView) => {
@@ -43,14 +42,7 @@ interface PhotoProps extends SanityImage {
   index: number;
 }
 
-function Photo({
-  url,
-  width,
-  height,
-  caption,
-  dominantColor,
-  index,
-}: PhotoProps) {
+function Photo({ url, width, height, caption, dominantColor, index }: PhotoProps) {
   const backgroundColor = dominantColor;
 
   // delay every photo by 100ms

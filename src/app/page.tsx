@@ -5,17 +5,13 @@ export default function Home() {
     <div className="flex flex-col">
       <div className="flex flex-col gap-4 md:flex-row md:gap-8">
         <p className="max-w-lg">
-          I’m a frontend developer, specialising in the Javascript ecosystem and
-          modern technologies such as React. I pride myself in writing scalable
-          and elegant code that performs. Seeking the simplest solutions to
-          complex problems.
+          I’m a frontend developer, specialising in the Javascript ecosystem and modern technologies
+          such as React. I pride myself in writing scalable and elegant code that performs. Seeking
+          the simplest solutions to complex problems.
         </p>
         <ul>
           <li>
-            <a
-              href="mailto: charles.zhao5461@gmail.com"
-              className="text-orange-400"
-            >
+            <a href="mailto: charles.zhao5461@gmail.com" className="text-orange-400">
               charles.zhao5461@gmail.com
             </a>
           </li>

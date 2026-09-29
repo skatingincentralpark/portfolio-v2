@@ -1,8 +1,4 @@
-import {
-  assertDirectories,
-  getAllPosts,
-  getPostBySlug,
-} from "@/lib/blog-utils";
+import { assertDirectories, getAllPosts, getPostBySlug } from "@/lib/blog-utils";
 import markdownToHtml from "@/lib/markdown-to-html";
 import { type Post } from "@/types/blog";
 
@@ -17,25 +13,17 @@ export async function generateStaticParams() {
     category.posts.map((post) => ({
       category: category.path,
       slug: post.slug!,
-    }))
+    })),
   );
 
   return params;
 }
 
-export default async function WritingsIndividual({
-  params,
-}: {
-  params: Promise<Params>;
-}) {
+export default async function WritingsIndividual({ params }: { params: Promise<Params> }) {
   async function getPost(params: Params): Promise<Post | undefined> {
     assertDirectories(params.category);
 
-    const post = getPostBySlug(
-      params.slug,
-      ["title", "slug", "content"],
-      params.category
-    );
+    const post = getPostBySlug(params.slug, ["title", "slug", "content"], params.category);
 
     const content = await markdownToHtml(post.content || "");
 

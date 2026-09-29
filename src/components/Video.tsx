@@ -11,12 +11,7 @@ interface VideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
   frameClassName?: string;
 }
 
-export default function Video({
-  path,
-  description,
-  frameClassName,
-  ...props
-}: VideoProps) {
+export default function Video({ path, description, frameClassName, ...props }: VideoProps) {
   const vid = useRef<HTMLVideoElement>(null);
   const [paused, setPaused] = useState(!props.autoPlay);
   const [loaded, setLoaded] = useState(false);
@@ -47,14 +42,12 @@ export default function Video({
       className={cn(
         `group/video relative h-full w-full rounded overflow-hidden border`,
         !inView && `border-dashed border-red-500`,
-        frameClassName
+        frameClassName,
       )}
     >
       {/* Skeleton stays underneath until the video's first frame is ready,
           then the video fades in over it. */}
-      {!loaded && (
-        <div className="absolute inset-0 bg-neutral-200 animate-pulse" />
-      )}
+      {!loaded && <div className="absolute inset-0 bg-neutral-200 animate-pulse" />}
       {inView && (
         <>
           {/* Silent project demos, so there's nothing to caption. */}
@@ -65,7 +58,7 @@ export default function Video({
             className={cn(
               "relative cursor-pointer transition-opacity duration-500",
               loaded ? "opacity-100" : "opacity-0",
-              props.className
+              props.className,
             )}
             onLoadedData={() => setLoaded(true)}
             onPlay={() => setPaused(false)}
@@ -88,7 +81,7 @@ export default function Video({
                 ? "opacity-0"
                 : paused
                   ? "opacity-100"
-                  : "opacity-0 group-hover/video:opacity-100"
+                  : "opacity-0 group-hover/video:opacity-100",
             )}
           >
             {/* Shrinks while pressed, then the key change remounts it so it

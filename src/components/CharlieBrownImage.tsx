@@ -3,13 +3,7 @@ import Image from "next/image";
 
 const CharlieBrownImage = () => {
   return (
-    <Image
-      className="w-24 mt-4"
-      src={charlie}
-      alt="bill evans"
-      placeholder="empty"
-      quality={100}
-    />
+    <Image className="w-24 mt-4" src={charlie} alt="bill evans" placeholder="empty" quality={100} />
   );
 };
 

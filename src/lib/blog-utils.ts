@@ -11,11 +11,7 @@ export function getContentSlugs(directory: string) {
   return fs.readdirSync(fullDirectory);
 }
 
-export function getPostBySlug(
-  slug: string,
-  fields: (keyof Post)[] = [],
-  directory: Directory
-) {
+export function getPostBySlug(slug: string, fields: (keyof Post)[] = [], directory: Directory) {
   try {
     const realSlug = slug.replace(/\.md$/, "");
     const fullDirectory = join(process.cwd(), `_content/${directory}`);
@@ -56,9 +52,7 @@ export function assertDirectories(dir: string | string[]): any {
 export function getAllPosts(fields: (keyof Post)[] = []) {
   const fullDirectory = join(process.cwd(), `_content`);
 
-  const directories = fs
-    .readdirSync(fullDirectory)
-    .filter((item) => !/(^|\/)\.[^/.]/g.test(item)); // ignore hidden files
+  const directories = fs.readdirSync(fullDirectory).filter((item) => !/(^|\/)\.[^/.]/g.test(item)); // ignore hidden files
 
   assertDirectories(directories);
 

@@ -2,9 +2,6 @@
   "name": "charlie-portfolio-2023",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "22.x"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -46,5 +43,8 @@
     "@types/lodash": "^4.17.25",
     "oxfmt": "^0.71.0",
     "oxlint": "^1.86.0"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

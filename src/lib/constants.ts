@@ -44,14 +44,7 @@ export const projects: {
     category: "iOS Fitness App",
     description:
       "Native iOS strength-training app, built interaction-first.  A custom slide-up sheet morphs from a floating card to fullscreen on one device-tuned spring, sets are logged on a custom keypad with haptics and RPE controls, and exercises are reordered or grouped into supersets by dragging.  Runs on mock data for now; persistence and history come next as it grows into a full app.",
-    technologies: [
-      "SwiftUI",
-      "UIKit",
-      "AVFoundation",
-      "MetalKit",
-      "XCTest",
-      "Maestro",
-    ],
+    technologies: ["SwiftUI", "UIKit", "AVFoundation", "MetalKit", "XCTest", "Maestro"],
     videoPath: "/videos/simpleworkout.mp4",
     videoOrientation: "portrait",
     year: 2026,
@@ -78,8 +71,7 @@ export const projects: {
     year: 2023,
     disclaimer: {
       status: "good",
-      description:
-        "WIP V2 of SadFrogsStudying, you can find that project below.",
+      description: "WIP V2 of SadFrogsStudying, you can find that project below.",
     },
     github: "https://github.com/sadfrogstudying/internationalstudyspots",
   },
@@ -103,15 +95,7 @@ export const projects: {
     category: "Study Spot Sharing Site",
     description:
       "The original user-submitted index of places to study around the world.  Superseded by InternationalStudySpots.",
-    technologies: [
-      "NextJS",
-      "Prisma",
-      "TRPC",
-      "AWS S3",
-      "React Query",
-      "Google Maps",
-      "tailwind",
-    ],
+    technologies: ["NextJS", "Prisma", "TRPC", "AWS S3", "React Query", "Google Maps", "tailwind"],
     videoPath: "/videos/sadfrogs.mp4",
     year: 2023,
     github: "https://github.com/sadfrogstudying/sadfrogs-nextjs",
@@ -119,8 +103,7 @@ export const projects: {
   {
     title: "Videohead",
     category: "Video Portfolio",
-    description:
-      "Sanity CMS to manage video projects for a client and NextJS on the frontend.",
+    description: "Sanity CMS to manage video projects for a client and NextJS on the frontend.",
     technologies: ["NextJS", "Sanity CMS"],
     videoPath: "/videos/videohead.mp4",
     url: "https://www.videohead.com.au/work",
@@ -132,13 +115,7 @@ export const projects: {
     category: "E-Commerce",
     description:
       "An online store where Gatsby pulls products from Shopify at build time and statically generates every product page.  The cart and checkout run client-side through the Shopify Buy SDK, persisted in localStorage, and the news and lookbook pages are written in Markdown.",
-    technologies: [
-      "Gatsby (React)",
-      "Graphql",
-      "Shopify",
-      "Shopify Buy SDK",
-      "Markdown",
-    ],
+    technologies: ["Gatsby (React)", "Graphql", "Shopify", "Shopify Buy SDK", "Markdown"],
     videoPath: "/videos/goriot.mp4",
     url: "https://onprinciple.netlify.app/",
     year: 2021,
@@ -151,8 +128,7 @@ export const projects: {
   {
     title: "Nuan Ho Art",
     category: "Portfolio",
-    description:
-      "A portfolio site I designed and developed for Sydney-based artist, Nuan Ho.",
+    description: "A portfolio site I designed and developed for Sydney-based artist, Nuan Ho.",
     technologies: ["Gatsby (React)", "Graphql", "NetlifyCMS"],
     videoPath: "/videos/nuanho.mp4",
     url: "https://www.nuanhoart.com/",

@@ -38,7 +38,7 @@ export const getPhotos = cache(async () => {
           "dominantColor": asset -> metadata.palette.dominant.background,
       }
     }[0].images
-    `
+    `,
   );
 
   return images;

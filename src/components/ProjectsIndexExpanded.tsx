@@ -5,8 +5,7 @@ import { Link } from "lucide-react";
 
 // Minimal index of projects with each row's preview and description always
 // visible. Collapses to a stacked layout below the xl breakpoint.
-const columns =
-  "xl:grid-cols-[4rem_minmax(0,2fr)_minmax(0,3fr)_minmax(0,2fr)_minmax(0,3fr)]";
+const columns = "xl:grid-cols-[4rem_minmax(0,2fr)_minmax(0,3fr)_minmax(0,2fr)_minmax(0,3fr)]";
 
 // iPhone 17 Pro screen corners: 62pt on a 402x874pt display, as percentages
 // so the radius scales with the video.
@@ -60,9 +59,7 @@ export default function ProjectsIndexExpanded() {
                   </a>
                 )}
               </div>
-              <p className="col-start-2 xl:col-start-auto">
-                {project.description}
-              </p>
+              <p className="col-start-2 xl:col-start-auto">{project.description}</p>
               <span className="col-start-2 xl:col-start-auto text-xs text-gray-500">
                 {project.technologies.join(", ")}
               </span>
@@ -73,16 +70,14 @@ export default function ProjectsIndexExpanded() {
                     ? "block aspect-1900/1090 bg-neutral-800"
                     : portrait
                       ? "flex justify-center aspect-4/5 py-4 bg-neutral-800"
-                      : "flex flex-col gap-3 p-3 bg-neutral-800"
+                      : "flex flex-col gap-3 p-3 bg-neutral-800",
                 )}
               >
                 {project.videoPath ? (
                   <>
                     <div
                       className={cn(
-                        portrait
-                          ? "h-full aspect-496/1080"
-                          : "w-full aspect-1900/1090"
+                        portrait ? "h-full aspect-496/1080" : "w-full aspect-1900/1090",
                       )}
                     >
                       <Video
@@ -92,9 +87,7 @@ export default function ProjectsIndexExpanded() {
                         loop
                         className="h-full w-full object-cover"
                         path={project.videoPath}
-                        frameClassName={
-                          portrait ? IPHONE_FRAME : "rounded-md border-0"
-                        }
+                        frameClassName={portrait ? IPHONE_FRAME : "rounded-md border-0"}
                         description={`Preview video for ${project.title}`}
                       />
                     </div>
