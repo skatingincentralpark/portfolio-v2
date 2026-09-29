@@ -149,7 +149,7 @@ export const projects: {
     description: "First Jamstack site.",
     technologies: ["Gatsby (React)", "Graphql", "Shopify"],
     videoPath: "/videos/goriot.mp4",
-    url: "https://www.goriot.co/",
+    url: "https://onprinciple.netlify.app/",
     year: 2021,
     disclaimer: {
       description: "Shopify plan has expired.",
