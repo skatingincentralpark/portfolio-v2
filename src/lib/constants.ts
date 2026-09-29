@@ -74,7 +74,7 @@ export const projects: {
       "tailwind",
     ],
     videoPath: "/videos/internationalstudyspots.mp4",
-    url: "https://internationalstudyspots.vercel.app/",
+    url: "https://internationalstudyspots-git-main-sadfrogstudyings-projects.vercel.app/",
     year: 2023,
     disclaimer: {
       status: "good",
