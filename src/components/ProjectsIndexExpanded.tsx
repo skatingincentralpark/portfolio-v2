@@ -8,6 +8,10 @@ import { Link } from "lucide-react";
 const columns =
   "xl:grid-cols-[4rem_minmax(0,2fr)_minmax(0,3fr)_minmax(0,2fr)_minmax(0,3fr)]";
 
+// iPhone 17 Pro screen corners: 62pt on a 402x874pt display, as percentages
+// so the radius scales with the video.
+const IPHONE_FRAME = "rounded-[15.42%_/_7.09%] border-0";
+
 export default function ProjectsIndexExpanded() {
   return (
     <div>
@@ -66,39 +70,57 @@ export default function ProjectsIndexExpanded() {
                 className={cn(
                   "col-start-2 xl:col-start-auto w-full max-w-md xl:max-w-none rounded",
                   !project.videoPath
-                    ? "block aspect-[1900/1090] bg-gray-100"
+                    ? "block aspect-[1900/1090] bg-neutral-800"
                     : portrait
                       ? "flex justify-center aspect-[4/5] py-4 bg-neutral-800"
-                      : "block p-3 bg-neutral-800"
+                      : "flex flex-col gap-3 p-3 bg-neutral-800"
                 )}
               >
                 {project.videoPath ? (
-                  <div
-                    className={cn(
-                      portrait
-                        ? "h-full aspect-[496/1080]"
-                        : "w-full aspect-[1900/1090]"
-                    )}
-                  >
-                    <Video
-                      playsInline
-                      autoPlay
-                      muted
-                      loop
-                      className="h-full w-full object-cover"
-                      path={project.videoPath}
-                      // iPhone 17 Pro screen corners: 62pt on a 402x874pt
-                      // display, as percentages so it scales with the video.
-                      frameClassName={
+                  <>
+                    <div
+                      className={cn(
                         portrait
-                          ? "rounded-[15.42%_/_7.09%] border-0"
-                          : "rounded-md border-0"
-                      }
-                      description={`Preview video for ${project.title}`}
-                    />
-                  </div>
+                          ? "h-full aspect-[496/1080]"
+                          : "w-full aspect-[1900/1090]"
+                      )}
+                    >
+                      <Video
+                        playsInline
+                        autoPlay
+                        muted
+                        loop
+                        className="h-full w-full object-cover"
+                        path={project.videoPath}
+                        frameClassName={
+                          portrait ? IPHONE_FRAME : "rounded-md border-0"
+                        }
+                        description={`Preview video for ${project.title}`}
+                      />
+                    </div>
+                    {project.appVideoPath && (
+                      // Stacked under the web video. Sized by width, since
+                      // h-full can't resolve against an aspect-ratio height
+                      // inside this flex column: 57.4% gives the same height
+                      // as a standalone portrait preview (4/5 box, 496x1080).
+                      <div className="mx-auto w-[57.4%]">
+                        <div className="aspect-[496/1080]">
+                          <Video
+                            playsInline
+                            autoPlay
+                            muted
+                            loop
+                            className="h-full w-full object-cover"
+                            path={project.appVideoPath}
+                            frameClassName={IPHONE_FRAME}
+                            description={`Preview video of the ${project.title} mobile app`}
+                          />
+                        </div>
+                      </div>
+                    )}
+                  </>
                 ) : (
-                  <div className="h-full w-full flex justify-center items-center text-gray-400">
+                  <div className="h-full w-full flex justify-center items-center text-neutral-400">
                     No preview
                   </div>
                 )}

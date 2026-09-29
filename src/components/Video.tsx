@@ -19,10 +19,14 @@ export default function Video({
 }: VideoProps) {
   const vid = useRef<HTMLVideoElement>(null);
   const [paused, setPaused] = useState(!props.autoPlay);
+  const [loaded, setLoaded] = useState(false);
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    rootMargin: "-100px",
+    // Vertical only: a horizontal inset would hide narrow videos near the
+    // right edge (e.g. the phone preview beside a web video) from the observer
+    // entirely, so they'd never load.
+    rootMargin: "-100px 0px",
   });
 
   // Autoplay can be blocked (e.g. low power mode) without a pause event, so
@@ -31,6 +35,11 @@ export default function Video({
   useEffect(() => {
     if (inView && autoPlay) vid.current?.play().catch(() => setPaused(true));
   }, [inView, autoPlay]);
+
+  // A cached video can finish loading before React attaches onLoadedData.
+  useEffect(() => {
+    if (inView && (vid.current?.readyState ?? 0) >= 2) setLoaded(true);
+  }, [inView]);
 
   return (
     <div
@@ -41,12 +50,22 @@ export default function Video({
         frameClassName
       )}
     >
-      {inView ? (
+      {/* Skeleton stays underneath until the video's first frame is ready,
+          then the video fades in over it. */}
+      {!loaded && (
+        <div className="absolute inset-0 bg-neutral-200 animate-pulse" />
+      )}
+      {inView && (
         <>
           <video
             ref={vid}
             {...props}
-            className={cn("cursor-pointer", props.className)}
+            className={cn(
+              "relative cursor-pointer transition-opacity duration-500",
+              loaded ? "opacity-100" : "opacity-0",
+              props.className
+            )}
+            onLoadedData={() => setLoaded(true)}
             onPlay={() => setPaused(false)}
             onPause={() => setPaused(true)}
             onClick={(e) => {
@@ -63,7 +82,11 @@ export default function Video({
           <div
             className={cn(
               "pointer-events-none absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity",
-              paused ? "opacity-100" : "opacity-0 group-hover/video:opacity-100"
+              !loaded
+                ? "opacity-0"
+                : paused
+                  ? "opacity-100"
+                  : "opacity-0 group-hover/video:opacity-100"
             )}
           >
             {/* Shrinks while pressed, then the key change remounts it so it
@@ -80,8 +103,6 @@ export default function Video({
             </span>
           </div>
         </>
-      ) : (
-        <div className="bg-neutral-200 w-full h-full animate-pulse" />
       )}
     </div>
   );

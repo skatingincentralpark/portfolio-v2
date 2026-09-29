@@ -6,6 +6,8 @@ export const projects: {
   videoPath: string;
   // Phone recordings are portrait; everything else is a 16:9 screen capture.
   videoOrientation?: "portrait";
+  // Optional phone recording shown below a web videoPath.
+  appVideoPath?: string;
   url?: string;
   year: number;
   github?: string;
@@ -33,6 +35,7 @@ export const projects: {
       "Playwright",
     ],
     videoPath: "/videos/jimoto.mp4",
+    appVideoPath: "/videos/jimoto-app.mp4",
     url: "https://community-convex-web.charles-zhao5461.workers.dev/",
     year: 2026,
   },
@@ -99,7 +102,7 @@ export const projects: {
     title: "SadFrogsStudying",
     category: "Study Spot Sharing Site",
     description:
-      "An index of beautiful places to study around the world.  User-submitted.  Big form and client/server validation with zod.  Implements Google Maps API, statically generates map pages, and uses NextJS's ISR to revalidate pages when new locations are added, to save API costs.  Implements pending edits where an admin has to confirm any edits.",
+      "The original user-submitted index of places to study around the world.  Superseded by InternationalStudySpots.",
     technologies: [
       "NextJS",
       "Prisma",
@@ -110,27 +113,8 @@ export const projects: {
       "tailwind",
     ],
     videoPath: "/videos/sadfrogs.mp4",
-    url: "https://sadfrogs-nextjs.vercel.app/",
     year: 2023,
     github: "https://github.com/sadfrogstudying/sadfrogs-nextjs",
-  },
-  {
-    title: "MachenV2",
-    category: "Notes App",
-    description:
-      "Accessible daily note-taking web app using lexical as the editor. date-fns to handle most date functionality.  Tested with react-testing-library.",
-    technologies: [
-      "lexical",
-      "emotion",
-      "date-fns",
-      "radix-ui",
-      "react-testing-library",
-      "jest",
-    ],
-    videoPath: "/videos/machenv2.mp4",
-    url: "https://machen-v2.vercel.app/",
-    year: 2023,
-    github: "https://github.com/skatingincentralpark/machen-v2",
   },
   {
     title: "Videohead",
@@ -138,7 +122,7 @@ export const projects: {
     description:
       "Sanity CMS to manage video projects for a client and NextJS on the frontend.",
     technologies: ["NextJS", "Sanity CMS"],
-    videoPath: "",
+    videoPath: "/videos/videohead.mp4",
     url: "https://www.videohead.com.au/work",
     year: 2022,
   },
@@ -146,8 +130,15 @@ export const projects: {
   {
     title: "Goriot",
     category: "E-Commerce",
-    description: "First Jamstack site.",
-    technologies: ["Gatsby (React)", "Graphql", "Shopify"],
+    description:
+      "An online store where Gatsby pulls products from Shopify at build time and statically generates every product page.  The cart and checkout run client-side through the Shopify Buy SDK, persisted in localStorage, and the news and lookbook pages are written in Markdown.",
+    technologies: [
+      "Gatsby (React)",
+      "Graphql",
+      "Shopify",
+      "Shopify Buy SDK",
+      "Markdown",
+    ],
     videoPath: "/videos/goriot.mp4",
     url: "https://onprinciple.netlify.app/",
     year: 2021,
@@ -163,7 +154,7 @@ export const projects: {
     description:
       "A portfolio site I designed and developed for Sydney-based artist, Nuan Ho.",
     technologies: ["Gatsby (React)", "Graphql", "NetlifyCMS"],
-    videoPath: "",
+    videoPath: "/videos/nuanho.mp4",
     url: "https://www.nuanhoart.com/",
     year: 2021,
   },
