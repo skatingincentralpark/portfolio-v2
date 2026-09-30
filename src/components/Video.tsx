@@ -18,10 +18,11 @@ export default function Video({ path, description, frameClassName, ...props }: V
 
   const { ref, inView } = useInView({
     triggerOnce: true,
-    // Vertical only: a horizontal inset would hide narrow videos near the
-    // right edge (e.g. the phone preview beside a web video) from the observer
-    // entirely, so they'd never load.
-    rootMargin: "-100px 0px",
+    // Start loading about a screen before the video scrolls into view so it's
+    // ready by the time it's visible. Vertical only: a horizontal inset would
+    // hide narrow videos near the right edge (e.g. the phone preview beside a
+    // web video) from the observer entirely, so they'd never load.
+    rootMargin: "100% 0px",
   });
 
   // Autoplay can be blocked (e.g. low power mode) without a pause event, so
